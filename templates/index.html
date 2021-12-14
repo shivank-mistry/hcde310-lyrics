@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+        body {
+        font-family: 'Roboto';
+        font-size:0.8em;
+        }
+        .center {
+            text-align: center
+
+        }
+        .header-img {
+          padding: 50px;
+          margin: 0;
+          text-align: center;
+          background:linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 1) ), url({{artistclass.header_image_url}});
+          font-size: 60px;
+        }
+
+        ul.cloud {
+          list-style: none;
+          padding-left: 0;
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          justify-content: center;
+          line-height: 0;
+        }
+        ul.cloud p {
+          color: #a33;
+          display: block;
+          font-size: 1.5rem;
+          padding: 0px 100px 0px 100px;
+          text-decoration: none;
+          position: relative;
+        }
+
+</style>
+<body style="background:black">
+
+    <div class="header-img">
+        <h1 style="color:white">Album Word Cloud</h1>
+    </div>
+
+    <div class='center'>
+        <h1 style="color:white">Current Album: {{artist}} - {{album}}</h1>
+        <form id="lyricsform" action="" method="get">
+            <label for="Artist" style="color:white">Artist</label>
+            <input type="text" name="artistlabel" id="artistlabel"/>
+            <label for="Album" style="color:white">Album</label>
+            <input type="text" name="album" id="album"/>
+            <input type="submit" value="Get Lyrics" name="submit" id="submit"/>
+        </form>
+    </div>
+    <div>
+        <ul class="cloud" aria-label="Lyric Word Cloud">
+        {% for word in topwords %}
+            <p style="font-size:{{word[1] * 5}}px; opacity:{{ word[1] / topwords[0][1] }}">{{word[0]}}</p>
+        {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
