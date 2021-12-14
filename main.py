@@ -84,7 +84,9 @@ stopwords = ["i", "me", "my", "myself", "we", "our", "ours", "ourselves", "you",
              "in", "out", "on", "off", "over", "under", "again", "further", "then", "once", "here",
              "there", "when", "where", "why", "how", "all", "any", "both", "each", "few", "more",
             "most", "other", "some", "such", "no", "nor", "not", "only", "own", "same", "so", "than",
-             "too", "very", "s", "t", "can", "will", "just", "don", "should", "now", "urlcopyembedcopy", "35embedshare"]
+             "too", "very", "s", "t", "can", "will", "just", "don", "should", "now", "urlcopyembedcopy",
+             "35embedshare", "i'm", "i've", "can't", "couldn't", "didn't", "don't", "doesn't", "hadn't",
+             "hasn't", "he's", "she's", "i'll", "i'd", "isn't", "it's", "let's", "she'll", "he'll", "that's"]
 #
 #
 #
