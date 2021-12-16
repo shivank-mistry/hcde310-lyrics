@@ -1,17 +1,12 @@
 from flask import Flask, render_template, request
-import urllib.parse, urllib.request, urllib.error, json
-import ssl
-from urllib.request import Request
-import lyricsgenius
 from bs4 import BeautifulSoup
 import re
 import lyricsgenius
 import requests
-from pathlib import Path
 import random
 import secret
 client_access_token = secret.client_access_token
-
+LyricsGenius = lyricsgenius.Genius(client_access_token)
 app = Flask(__name__)
 # Function to sort Keys in a Dictionary
 def sortKeysByValue(d):
@@ -55,7 +50,6 @@ def get_all_songs_from_album(artist, album_name):
         clean_song = clean_up(song_title)
         clean_songs.append(clean_song)
 
-    LyricsGenius = lyricsgenius.Genius(client_access_token)
     LyricsGenius.remove_section_headers = True
     song_objects = []
 
@@ -67,7 +61,6 @@ def get_all_songs_from_album(artist, album_name):
 # returns lyricsgenius artist class. Sets number of songs to zero
 # for much quicker load times
 def get_artist(artist):
-    LyricsGenius = lyricsgenius.Genius(client_access_token)
     return LyricsGenius.search_artist(artist_name=artist, max_songs=0)
 #
 #

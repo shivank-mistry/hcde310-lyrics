@@ -1,0 +1,6 @@
+flask
+bs4
+lyricsgenius
+requests
+
+
